@@ -816,6 +816,90 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+}
+
+.section-bg {
+  background-color: #f8fcf9;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  /* font-size: 32px; */
+  font-weight: 600;
+  /* text-transform: uppercase; */
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  /* content: ""; */
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--color-secondary);
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #919191;
+}
+
+
+/*--------------------------------------------------------------
+# Nossos parceiros
+--------------------------------------------------------------*/
+.clients .swiper-slide img {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.clients .swiper-slide img:hover {
+  opacity: 1;
+}
+
+.clients .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.clients .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid var(--color-secondary);
+}
+
+.clients .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-secondary);
+}
+
+/*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
 .features {
