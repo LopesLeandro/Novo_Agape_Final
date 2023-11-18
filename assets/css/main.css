@@ -22,6 +22,7 @@
   --color-default: #181818;
   --color-primary: #EAD24C;
   --color-secondary: #812828;
+  --color-ternary: #074564;
   --color-red-transparency: rgba(129, 40, 40, 0.7);
   --color-lightred-transparency: rgba(129, 40, 40, 0.3);
   --color-darkred-transparency: rgba(129, 40, 40, 0.85);
@@ -29,6 +30,8 @@
   --color-snowwhite-transparency: rgba(255, 255, 255, 0.9);
   --color-gray-transparency: rgba(255, 255, 255, 0.8);
   --color-lightgray-transparency: rgba(255, 255, 255, 0.6);
+  --color-lightblue-transparency: rgb(7, 69, 100,0.3);
+  --color-darkblue-transparency: rgb(7, 69, 100,0.8);
   --color-full-white: #fff;
 }
 
@@ -572,7 +575,7 @@ section {
   border-radius: 50px;
   transition: 0.5s;
   color: #fff;
-  background: var(--color-primary);
+  background: var(--color-ternary);
 }
 
 .hero .btn-get-started:hover {
@@ -590,7 +593,7 @@ section {
 }
 
 .hero .btn-watch-video i {
-  color: var(--color-primary);
+  color: var(--color-ternary);
   font-size: 32px;
   transition: 0.3s;
   line-height: 0;
@@ -804,8 +807,8 @@ section {
   border-radius: 50px;
   transition: 0.5s;
   margin: 10px;
-  color: var(--color-default);
-  background: var(--color-primary);
+  color: #fff;
+  background: var(--color-ternary);
 }
 
 .call-to-action .cta-btn:hover {
@@ -2128,7 +2131,7 @@ section {
 .footer .footer-content h4 {
   font-size: 16px;
   font-weight: bold;
-  color: var(--color-secondary);
+  color: var(--color-ternary);
   position: relative;
   padding-bottom: 12px;
 }
@@ -2145,7 +2148,7 @@ section {
 
 .footer .footer-content .footer-links ul i {
   margin-right: 2px;
-  color: var(--color-primary);
+  color: var(--color-ternary);
   font-size: 16px;
   line-height: 0;
 }
@@ -2161,19 +2164,19 @@ section {
 }
 
 .footer .footer-content .footer-links ul a {
-  color: var(--color-secondary);
+  color: var(--color-ternary);
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 
 .footer .footer-content .footer-links ul a:hover {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .footer .footer-content .footer-contact p {
   line-height: 26px;
-  color: var(--color-secondary);
+  color: var(--color-ternary);
 }
 
 .footer .footer-legal {
