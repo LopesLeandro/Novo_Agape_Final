@@ -599,7 +599,8 @@ section {
 }
 
 .hero .btn-get-started:hover {
-  background: var(--color-yellow-transparency);
+  background: var(--color-primary);
+  color: #000;
   font-weight: 600;
   transition: 0.5s;
 }
