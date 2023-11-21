@@ -27,6 +27,10 @@
   :root {
     scroll-behavior: smooth;
   }
+
+  .btn {
+    max-width: 200px;
+  }
   
   /*--------------------------------------------------------------
   # General

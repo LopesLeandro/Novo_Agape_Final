@@ -27,7 +27,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/cadastro_familia.css" rel="stylesheet">
+  <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
 <body class="page-contact">
@@ -79,108 +79,49 @@
         <div class="section-title">
           <!-- <h1>Login</h1> -->
         </div>
-        <form class="row mt-5 d-flex justify-content-between flex-fill">
-          <h2>Ficha Cadastral – Somos Ágape</h2>
-  
-          <!-- Seção de Identificação -->
-          <h3>Identificação</h3>
-          <div class="container mt-5">
-            <form>
-              <!-- Linha 1: Nome, CPF, Data de Nascimento -->
-              <div class="row mb-3">
-                <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" class="form-control" placeholder="Nome" required>
-                </div>
-                <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" class="form-control" placeholder="CPF" maxlength="11" required>
-                </div>
-                <div class="col-md-2 col-sm-6 mt-2 text-center">
-                    <span>Data de nascimento:</span>
-                </div>
-                <div class="col-md-4 col-sm-6 mt-2">
-                  <input type="date" class="form-control" required>
-              </div>
-              </div>
 
-              <!-- Linha 2: Naturalidade, Filiação, Etnia -->
-              <div class="row mb-3 mt-2">
-                <div class="col-md-4 col-sm-6">
-                    <input type="text" class="form-control" placeholder="Naturalidade" required>
+        <div class="row mt-5 justify-content-center" id="corpo-form">
+          <div class="col-sm-6">
+            <form action="forms/processa.php" method="POST">
+              <div class="d-flex justify-content-between">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Família</label>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <input type="text" class="form-control" placeholder="Filiação" required>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">Voluntário</label>
                 </div>
-                <div class="col-md-4 col-sm-12 mt-2">
-                    <select class="form-select" required>
-                        <option selected disabled>Etnia</option>
-                        <option value="branco">Branco</option>
-                        <option value="preta">Preta</option>
-                        <option value="parda">Parda</option>
-                        <option value="indigena">Indígena</option>
-                        <option value="outro">Outro</option>
-                    </select>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                  <label class="form-check-label" for="inlineRadio3">Parceiro</label>
                 </div>
               </div>
-
-    
-                <!-- Linha 3: Renda Familiar, Estado Civil -->
-                <div class="row mb-3 mt-2">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Renda Familiar" required>
-                    </div>
-                    <div class="col ">
-                        <select class="form-select" required>
-                            <option selected disabled>Estado Civil</option>
-                            <option value="casado">Casado(a)</option>
-                            <option value="uniao_estavel">União Estável</option>
-                            <option value="solteiro">Solteiro(a)</option>
-                            <option value="viuvo">Viúvo(a)</option>
-                            <option value="divorciado">Divorciado(a)</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                </div>
-    
-                <!-- Linha 4: Trabalhando? -->
-                <div class="mb-3 mt-2">
-                  <label class="form-label">Você está trabalhando?</label>
-                  <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoSim" value="sim" required>
-                      <label class="form-check-label" for="trabalhandoSim">Sim</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoNao" value="nao">
-                      <label class="form-check-label" for="trabalhandoNao">Não</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoAposentado" value="aposentado">
-                      <label class="form-check-label" for="trabalhandoAposentado">Aposentado(a)</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoInvalidez" value="invalidez">
-                      <label class="form-check-label" for="trabalhandoInvalidez">Invalidez</label>
-                  </div>
+              <div>
+                <p></p>
               </div>
               
-    
-                <!-- Linha 5: Telefone 1, Telefone 2, E-mail -->
-                <div class="row mb-3">
-                    <div class="col">
-                        <input type="tel" class="form-control" placeholder="Telefone 1" required>
-                    </div>
-                    <div class="col">
-                        <input type="tel" class="form-control" placeholder="Telefone 2">
-                    </div>
-                    <div class="col">
-                        <input type="email" class="form-control" placeholder="E-mail" required>
-                    </div>
+              <div class="row">
+                <p>Usuário:</p>
+                <div class="col-md-12 form-group">
+                  <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" required>
                 </div>
-    
-                <!-- Botão de envio -->
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="col-md-12 form-group mt-3 mt-md-0">
+                  <p></p>
+                  <p>Senha:</p>
+                  <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
+                </div>
+              </div>
+              <div><p></p></div>
+              <div class="d-flex justify-content-between flex-fill>">
+                <a href="cadastro_familia.html" class="mr-auto">Cadastre-se</a>
+                <a href="#" class="ml-auto">Esqueci minha senha</a>
+                <!-- <button type="submit">Avançar</button> -->
+              </div>
+              <div class="text-center"><button type="submit">Avançar</button></div>
             </form>
+          </div>
         </div>
-      </form>
 
       </div>
     </section>
