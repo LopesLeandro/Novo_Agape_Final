@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nova Bootstrap Template - Contact</title>
+  <title>Instituto Somos Ágape - Login</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,15 +27,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Nova
-  * Updated: Aug 30 2023 with Bootstrap v5.3.1
-  * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="assets/css/cadastro_familia.css" rel="stylesheet">
 </head>
 
 <body class="page-contact">
@@ -72,85 +64,124 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/contact-header.jpg');">
+    <div class="breadcrumbs d-flex align-items-center">
       <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>Nossos Contatos</h2>
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Contato</li>
-        </ol>
+
 
       </div>
     </div><!-- End Breadcrumbs -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container position-relative" data-aos="fade-up">
+    <section id="login" class="login">
+      <div class="container" data-aos="fade-up">
 
-        <div class="row gy-4 d-flex justify-content-end">
-
-          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="info-item d-flex">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h4>Endereço:</h4>
-                <p>Rua Veroni Pedro Graciano, 2954</p>
-                <p>Costa e Silva - 89.220-660</p>
-                <p>Joinville, SC</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h4>Email:</h4>
-                <p>somosagapejlle@gmail.com</p>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="info-item d-flex">
-              <i class="bi bi-phone flex-shrink-0"></i>
-              <div>
-                <h4>Telefone:</h4>
-                <p>(47) 9 9690-5460</p>
-              </div>
-            </div><!-- End Info Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Carregando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Sua mensagem foi enviada. Obrigado!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensagem</button></div>
-            </form>
-
-          </div><!-- End Contact Form -->
-
+        <div class="section-title">
+          <!-- <h1>Login</h1> -->
         </div>
+        <form class="row mt-5 d-flex justify-content-between flex-fill">
+          <h2>Ficha Cadastral – Somos Ágape</h2>
+  
+          <!-- Seção de Identificação -->
+          <h3>Identificação</h3>
+          <div class="container mt-5">
+            <form>
+              <!-- Linha 1: Nome, CPF, Data de Nascimento -->
+              <div class="row mb-3">
+                <div class="col-md-4 col-sm-6 mt-2">
+                    <input type="text" class="form-control" placeholder="Nome" required>
+                </div>
+                <div class="col-md-4 col-sm-6 mt-2">
+                    <input type="text" class="form-control" placeholder="CPF" required>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-2">
+                    <input type="date" class="form-control" required>
+                </div>
+              </div>
+
+              <!-- Linha 2: Naturalidade, Filiação, Etnia -->
+              <div class="row mb-3">
+                <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" placeholder="Naturalidade" required>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" placeholder="Filiação" required>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <select class="form-select" required>
+                        <option selected disabled>Etnia</option>
+                        <option value="branco">Branco</option>
+                        <option value="preta">Preta</option>
+                        <option value="parda">Parda</option>
+                        <option value="indigena">Indígena</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+              </div>
+
+    
+                <!-- Linha 3: Renda Familiar, Estado Civil -->
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Renda Familiar" required>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" required>
+                            <option selected disabled>Estado Civil</option>
+                            <option value="casado">Casado(a)</option>
+                            <option value="uniao_estavel">União Estável</option>
+                            <option value="solteiro">Solteiro(a)</option>
+                            <option value="viuvo">Viúvo(a)</option>
+                            <option value="divorciado">Divorciado(a)</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Linha 4: Trabalhando? -->
+                <div class="mb-3">
+                  <label class="form-label">Você está trabalhando?</label>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoSim" value="sim" required>
+                      <label class="form-check-label" for="trabalhandoSim">Sim</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoNao" value="nao">
+                      <label class="form-check-label" for="trabalhandoNao">Não</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoAposentado" value="aposentado">
+                      <label class="form-check-label" for="trabalhandoAposentado">Aposentado(a)</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoInvalidez" value="invalidez">
+                      <label class="form-check-label" for="trabalhandoInvalidez">Invalidez</label>
+                  </div>
+              </div>
+              
+    
+                <!-- Linha 5: Telefone 1, Telefone 2, E-mail -->
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Telefone 1" required>
+                    </div>
+                    <div class="col">
+                        <input type="tel" class="form-control" placeholder="Telefone 2">
+                    </div>
+                    <div class="col">
+                        <input type="email" class="form-control" placeholder="E-mail" required>
+                    </div>
+                </div>
+    
+                <!-- Botão de envio -->
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+      </form>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+    <!-- End login Section -->
 
   </main><!-- End #main -->
 
