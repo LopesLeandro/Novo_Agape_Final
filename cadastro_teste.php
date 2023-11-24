@@ -85,12 +85,12 @@
           </div>
     
         <div class="form-container mx-auto">
-          <form class="container mt-5 form-container mx-auto">
+          <form action="cadastro_teste.php" method="POST" class="container mt-5 form-container mx-auto">
             <h2 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Ficha Cadastral – Somos Ágape</h2>
     
             <h3 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Identificação</h3>
             <div class="container mt-5 form-container mx-auto">
-              <form action="Cadastro.php" method="POST" class="">
+              <form action="cadastro_teste.php" method="POST" class="">
                 <div class="">
                   <div class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">
                       <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="30" required>
@@ -219,7 +219,7 @@
 <?php
 //Verificar se clicou no botão
 // if(isset(addslashes($_POST['nome'])))
-if(isset($_POST['submit']))
+if(isset($_POST['nome']))
 {
     $telefone = addslashes($_POST['telefone']);
     $email = addslashes($_POST['email']);
@@ -229,7 +229,7 @@ if(isset($_POST['submit']))
     //verifica se não está vazio
     if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarsenha))
     {
-      $u->conectar("Agape", "localhost", "root", "");
+      $u->conectar("pagina_login", "localhost", "root", "@Ruth12345");
       if($u->msgErro == "") //tudo certo
       {
         if($senha == $confirmarsenha)
@@ -255,7 +255,7 @@ if(isset($_POST['submit']))
     //verifica se não está vazio
     if(!empty($nome) && !empty($telefone) && !empty($email) && !empty(senha) && !empty(confirmarsenha))
     {
-        $u->conectar("Agape", "localhost", "root", "");
+        $u->conectar("pagina_login", "localhost", "root", "@Ruth12345");
         if($u->msgErro == "") //tudo certo
         {
             if($senha == $confirmarsenha)
