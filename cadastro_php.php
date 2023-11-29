@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 
 <head>
@@ -10,8 +13,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon/favicon-32x32.png" rel="icon">
+  <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +30,8 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/login.css" rel="stylesheet">
+  <link href="assets/css/cadastro_familia.css" rel="stylesheet">
+  <link href="assets/css/error_message.css" rel="stylesheet">
 </head>
 
 <body class="page-contact">
@@ -59,6 +63,7 @@
       </nav><!-- .navbar -->
 
     </div>
+
   </header><!-- End Header -->
 
   <main id="main">
@@ -76,56 +81,59 @@
     <section id="login" class="login">
       <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <!-- <h1>Login</h1> -->
+        <div class="form-container mx-auto">
+          <form class="container mt-5 form-container mx-auto" method="POST" action="config.php">
+            <h2 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Ficha Cadastral – Somos Ágape</h2>
+    
+            <h3 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Identificação</h3>
+            <div class="container mt-5 form-container mx-auto">
+                <div class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">
+                <div class="d-flex justify-content-center">
+                  <div class="form-check form-check-inline px-5">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="familia">
+                    <label class="form-check-label" for="inlineRadio1">Família</label>
+                  </div>
+                  <div class="form-check form-check-inline px-5">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="voluntario">
+                    <label class="form-check-label" for="inlineRadio2">Voluntário</label>
+                  </div>
+                </div>
+                  <div class="mt-2 mx-auto">
+                      <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="30" required>
+                  </div>
+                  <div class="mt-2 mx-auto">
+                    <input type="tel" name="telefone" class="form-control" placeholder="Telefone" maxlength="11">
+                  </div>
+                  <div class="mt-2 mx-auto">
+                    <input type="email" name="email" class="form-control" placeholder="Email" maxlength="40" required>
+                  </div>
+                  <div class="mt-2 mx-auto">
+                    <input type="password" name="senha" class="form-control" placeholder="Senha" maxlength="15" required>
+                  </div>
+                  <div class="mt-2 mx-auto">
+                    <input type="password" name="confirmarsenha" class="form-control" placeholder="Confirmar Senha" maxlength="15" required>
+                  </div>
+                </div>
+                <div>
+                <?php    
+                  if (isset($_SESSION['error_message'])) {
+                      echo '<div class="alert alert-warning alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                          . $_SESSION['error_message'] .
+                          '</div>';
+                      unset($_SESSION['error_message']);
+                  }
+                  ?>
+                </div>
+    
+                <div class="row mb-3 d-flex align-items-center">
+                  <button type="submit" class="btn btn-primary btn-block mx-auto">Cadastrar</button>
+                </div>
+            </div>
+          </form>
         </div>
-
-        <div class="row mt-5 justify-content-center" id="corpo-form">
-          <div class="col-sm-6">
-            <form action="forms/processa.php" method="POST">
-              <div class="d-flex justify-content-between">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                  <label class="form-check-label" for="inlineRadio1">Família</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                  <label class="form-check-label" for="inlineRadio2">Voluntário</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                  <label class="form-check-label" for="inlineRadio3">Parceiro</label>
-                </div>
-              </div>
-              <div>
-                <p></p>
-              </div>
-              
-              <div class="row">
-                <p>Usuário:</p>
-                <div class="col-md-12 form-group">
-                  <input type="email" name="email" class="form-control" id="email" placeholder="E-mail" required>
-                </div>
-                <div class="col-md-12 form-group mt-3 mt-md-0">
-                  <p></p>
-                  <p>Senha:</p>
-                  <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
-                </div>
-              </div>
-              <div><p></p></div>
-              <div class="d-flex justify-content-between flex-fill>">
-                <a href="cadastro_familia.html" class="mr-auto">Cadastre-se</a>
-                <a href="#" class="ml-auto">Esqueci minha senha</a>
-                <!-- <button type="submit">Avançar</button> -->
-              </div>
-              <div class="text-center"><button type="submit">Avançar</button></div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- End login Section -->
+    
+        </section>
+    <!-- End form Section -->
 
   </main><!-- End #main -->
 
@@ -188,23 +196,6 @@
       </div>
     </div>
 
-    <!-- <div class="footer-legal">
-      <div class="container">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Nova</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits"> -->
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
-          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-    </div> -->
-  <!-- </footer> -->
-  <!-- End Footer --><!-- End Footer -->
-
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
@@ -219,6 +210,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
 
 </body>
 
