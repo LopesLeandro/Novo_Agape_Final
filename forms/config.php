@@ -34,13 +34,13 @@ if(isset($_POST['nome'])){
     // Verifica se os campos estão preenchidos
     if (empty($radiovalue) || empty($nome) || empty($telefone) || empty($email) || empty($senha) || empty($confirmarsenha)) {
         $_SESSION['error_message'] = "Por favor, preencha todos os campos!";
-        header('Location: cadastro_php.php');
+        header('Location: ../cadastro.php');
         exit();
     } else {
         // Validar comprimento mínimo da senha
         if (strlen($senha) < 8) {
             $_SESSION['error_message'] = "A senha deve ter pelo menos 8 caracteres!";
-            header('Location: cadastro_php.php');
+            header('Location: ../cadastro.php');
             exit();
             //  
         } else {
@@ -53,7 +53,7 @@ if(isset($_POST['nome'])){
 
             if ($stmt->execute()) {
                 $_SESSION['error_message'] = "Usuário cadastrado com sucesso!";
-                header('Location: cadastro_php.php');
+                header('Location: ../cadastro.php');
                 exit();
             } else {
                 echo "Erro ao cadastrar o usuário: " . $conn->error;

@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,8 +30,7 @@ session_start();
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/cadastro_familia.css" rel="stylesheet">
-  <link href="assets/css/error_message.css" rel="stylesheet">
+  <link href="assets/css/login.css" rel="stylesheet">
 </head>
 
 <body class="page-contact">
@@ -60,61 +59,48 @@ session_start();
           <li><a href="contact.html">Contato</a></li>
           <li><a class="login btn" href="login.html">Login</a></li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
+      <!-- .navbar -->
 
     </div>
-
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs d-flex align-items-center">
       <div class="container position-relative d-flex flex-column align-items-center">
-
-
-
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    <!-- End Breadcrumbs -->
 
-    <!-- ======= Contact Section ======= -->
+    <!-- ======= Login Section ======= -->
     <section id="login" class="login">
-      <div class="container" data-aos="fade-up">
-
-        <div class="form-container mx-auto">
-          <form class="container mt-5 form-container mx-auto" method="POST" action="config.php">
-            <h2 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Ficha Cadastral – Somos Ágape</h2>
-    
-            <h3 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Identificação</h3>
-            <div class="container mt-5 form-container mx-auto">
-                <div class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">
-                <div class="d-flex justify-content-center">
+        <form action="forms/verify_login.php" method="POST">
+          <div class="row mt-5 justify-content-center px-5">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-10">
+                <!-- <div class="d-flex justify-content-center">
                   <div class="form-check form-check-inline px-5">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="familia">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                     <label class="form-check-label" for="inlineRadio1">Família</label>
                   </div>
                   <div class="form-check form-check-inline px-5">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="voluntario">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                     <label class="form-check-label" for="inlineRadio2">Voluntário</label>
                   </div>
-                </div>
-                  <div class="mt-2 mx-auto">
-                      <input type="text" name="nome" class="form-control" placeholder="Nome" maxlength="30" required>
+                </div> -->
+
+                <div class="row mt-3">
+                  <div class="form-group">
+                    <label class="form-check-label" for="email">Usuário</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="" required>
                   </div>
-                  <div class="mt-2 mx-auto">
-                    <input type="tel" name="telefone" class="form-control" placeholder="Telefone" maxlength="11">
-                  </div>
-                  <div class="mt-2 mx-auto">
-                    <input type="email" name="email" class="form-control" placeholder="Email" maxlength="40" required>
-                  </div>
-                  <div class="mt-2 mx-auto">
-                    <input type="password" name="senha" class="form-control" placeholder="Senha" maxlength="15" required>
-                  </div>
-                  <div class="mt-2 mx-auto">
-                    <input type="password" name="confirmarsenha" class="form-control" placeholder="Confirmar Senha" maxlength="15" required>
+                  <div class="mt-4">
+                    <label class="form-check-label" for="password">Senha</label>
+                    <input type="password" class="form-control" name="senha" id="senha" placeholder="" required>
                   </div>
                 </div>
-                <div>
                 <?php    
                   if (isset($_SESSION['error_message'])) {
                       echo '<div class="alert alert-warning alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
@@ -123,17 +109,19 @@ session_start();
                       unset($_SESSION['error_message']);
                   }
                   ?>
+                
+                <div class="d-flex justify-content-center mt-3">
+                  <a href="cadastro.php" class="px-3">Cadastre-se</a>
+                  <a href="#" class="px-3">Esqueci minha senha</a>
                 </div>
-    
-                <div class="row mb-3 d-flex align-items-center">
-                  <button type="submit" class="btn btn-primary btn-block mx-auto">Cadastrar</button>
+                <div class="text-center">
+                  <button type="submit">Avançar</button>
                 </div>
             </div>
-          </form>
-        </div>
-    
-        </section>
-    <!-- End form Section -->
+          </div>
+        </form>
+    </section>
+    <!-- End From Section -->
 
   </main><!-- End #main -->
 
@@ -210,8 +198,6 @@ session_start();
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-
 
 </body>
 

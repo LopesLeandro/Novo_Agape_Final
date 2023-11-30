@@ -20,28 +20,28 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
 
             // Redirecionar com base no valor de 'radiovalue'
             if ($row['radiovalue'] == 'familia') {
-                header('Location: cadastro_familia.html');
+                header('Location: ../cadastro_familia.html');
             } elseif ($row['radiovalue'] == 'voluntario') {
-                header('Location: cadastro_voluntario.html');
+                header('Location: ../cadastro_voluntario.html');
             } else {
                 // Caso 'radiovalue' não seja nem 'familia' nem 'voluntario'
                 $_SESSION['error_message'] = "Tipo de usuário inválido!";
-                header('Location: login_php.php');
+                header('Location: ../login.php');
             }
         } else {
             // Senha incorreta
             $_SESSION['error_message'] = "E-mail e/ou senha incorretos!";
-            header('Location: login_php.php');
+            header('Location: ../login.php');
         }
     } else {
         // Usuário não encontrado
         $_SESSION['error_message'] = "Usuário não encontrado!";
-        header('Location: login_php.php');
+        header('Location: ../login.php');
     }
 
     $stmt->close();
     $conn->close();
 } else {
-    header('Location: login_php.php'); // Redirecionar se não houver dados de POST
+    header('Location: ../login.php'); // Redirecionar se não houver dados de POST
 }
 ?>
