@@ -1,5 +1,10 @@
+<?php
+session_start();
+// include 'forms/config.php';
+// include 'forms/verify_login.php';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
   <meta charset="utf-8">
@@ -54,7 +59,7 @@
           <li><a href="index.html#team">Quem somos</a></li>
           <li><a href="index.html#recent-posts">Ações</a></li>
           <li><a href="contact.html">Contato</a></li>
-          <li><a class="login btn" href="login.html">Login</a></li>
+          <li><a class="login btn" href="login.php">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -79,45 +84,68 @@
         <div class="section-title">
           <!-- <h1>Login</h1> -->
         </div>
-        <form class="row mt-5 d-flex justify-content-between flex-fill container mt-5 form-container mx-auto" method="POST" action="config.php">
-          <h2 class="mt-3">Ficha Cadastral – Somos Ágape</h2>
+        <!-- <?php
+          // if (isset($_SESSION['user_email'])) {
+          //   echo '<div class="alert alert-success alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+          //       . $_SESSION['success'] .
+          //       '</div>';
+          //   unset($_SESSION['success']);
+          // }
+        ?> -->
+        <!-- <form class="row mt-5 d-flex justify-content-between flex-fill container mt-5 form-container mx-auto" method="POST" action="forms/ficha_cadastral_familia.php"> -->
+          <h2 class="mt-3">Ficha Cadastral</h2>
+          <?php    
+          if (isset($_SESSION['error_message'])) {
+              echo '<div class="alert alert-warning alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                  . $_SESSION['error_message'] .
+                  '</div>';
+              unset($_SESSION['error_message']);
+          }
+          if (isset($_SESSION['success_message'])) {
+            echo '<div class="alert alert-success alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                . $_SESSION['success_message'] .
+                '</div>';
+            unset($_SESSION['success_message']);
+          }
+          ?>
           <hr>
           <!-- Seção de Identificação -->
           <h3>Identificação</h3>
+          <form class="row mt-5 d-flex justify-content-between flex-fill container mt-5 form-container mx-auto" method="POST" action="forms/ficha_cadastral_familia.php">
           <div class="container mt-3">
             <!-- <form> -->
               <!-- Linha 1: Nome, CPF, Data de Nascimento -->
               <div class="row mb-3">
                 <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" class="form-control" placeholder="Nome" required>
+                    <input type="text" name="nome" class="form-control" placeholder="Nome">
                 </div>
                 <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" class="form-control" placeholder="CPF" maxlength="11" required>
+                    <input type="text" name="cpf" class="form-control" placeholder="CPF" maxlength="11">
                 </div>
                 <div class="col-md-2 col-sm-6 mt-2 text-center">
                     <span>Data de nascimento:</span>
                 </div>
                 <div class="col-md-4 col-sm-6 mt-2">
-                  <input type="date" class="form-control" required>
+                  <input type="date" name="nascimento" class="form-control">
               </div>
               </div>
 
               <!-- Linha 2: Naturalidade, Filiação, Etnia -->
               <div class="row mb-3 mt-2">
                 <div class="col-md-4 col-sm-6">
-                    <input type="text" class="form-control" placeholder="Naturalidade" required>
+                    <input type="text" name="naturalidade" class="form-control" placeholder="Naturalidade">
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <input type="text" class="form-control" placeholder="Filiação" required>
+                    <input type="text" name="filiacao" class="form-control" placeholder="Filiação">
                 </div>
                 <div class="col-md-4 col-sm-12 mt-2">
-                    <select class="form-select" required>
+                    <select class="form-select" name="etnia">
                         <option selected disabled>Etnia</option>
-                        <option value="branco">Branco</option>
-                        <option value="preta">Preta</option>
-                        <option value="parda">Parda</option>
-                        <option value="indigena">Indígena</option>
-                        <option value="outro">Outro</option>
+                        <option name="etnia" value="branco">Branco</option>
+                        <option name="etnia" value="preta">Preta</option>
+                        <option name="etnia" value="parda">Parda</option>
+                        <option name="etnia" value="indigena">Indígena</option>
+                        <option name="etnia" value="outro">Outro</option>
                     </select>
                 </div>
               </div>
@@ -126,17 +154,17 @@
               <!-- Linha 3: Renda Familiar, Estado Civil -->
               <div class="row mb-3 mt-2">
                   <div class="col">
-                      <input type="text" class="form-control" placeholder="Renda Familiar" required>
+                      <input type="text" name="renda" class="form-control" placeholder="Renda Familiar">
                   </div>
                   <div class="col ">
-                      <select class="form-select" required>
+                      <select class="form-select" name="estado_civil">
                           <option selected disabled>Estado Civil</option>
-                          <option value="casado">Casado(a)</option>
-                          <option value="uniao_estavel">União Estável</option>
-                          <option value="solteiro">Solteiro(a)</option>
-                          <option value="viuvo">Viúvo(a)</option>
-                          <option value="divorciado">Divorciado(a)</option>
-                          <option value="outro">Outro</option>
+                          <option name="estado_civil" value="casado">Casado(a)</option>
+                          <option name="estado_civil" value="uniao_estavel">União Estável</option>
+                          <option name="estado_civil" value="solteiro">Solteiro(a)</option>
+                          <option name="estado_civil" value="viuvo">Viúvo(a)</option>
+                          <option name="estado_civil" value="divorciado">Divorciado(a)</option>
+                          <option name="estado_civil" value="outro">Outro</option>
                       </select>
                   </div>
               </div>
@@ -145,19 +173,19 @@
               <div class="mb-3 mt-2">
                 <label class="form-label">Você está trabalhando?</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoSim" value="sim" required>
+                    <input class="form-check-input" type="radio" name="situacao_emprego" id="trabalhandoSim" value="sim">
                     <label class="form-check-label" for="trabalhandoSim">Sim</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoNao" value="nao">
+                    <input class="form-check-input" type="radio" name="situacao_emprego" id="trabalhandoNao" value="nao">
                     <label class="form-check-label" for="trabalhandoNao">Não</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoAposentado" value="aposentado">
+                    <input class="form-check-input" type="radio" name="situacao_emprego" id="trabalhandoAposentado" value="aposentado">
                     <label class="form-check-label" for="trabalhandoAposentado">Aposentado(a)</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="trabalhando" id="trabalhandoInvalidez" value="invalidez">
+                    <input class="form-check-input" type="radio" name="situacao_emprego" id="trabalhandoInvalidez" value="invalidez">
                     <label class="form-check-label" for="trabalhandoInvalidez">Invalidez</label>
                 </div>
             </div>
@@ -166,13 +194,13 @@
             <!-- Linha 5: Telefone 1, Telefone 2, E-mail -->
             <div class="row mb-3">
                 <div class="col">
-                    <input type="tel" class="form-control" placeholder="Telefone 1" required>
+                    <input type="tel" name="telefone1" class="form-control" placeholder="Telefone 1">
                 </div>
                 <div class="col">
-                    <input type="tel" class="form-control" placeholder="Telefone 2">
+                    <input type="tel" name="telefone2" class="form-control" placeholder="Telefone 2">
                 </div>
                 <div class="col">
-                    <input type="email" class="form-control" placeholder="E-mail" required>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail">
                 </div>
             </div>
             <hr class="mt-5">
@@ -182,39 +210,39 @@
               <!-- Linha 1: Nome, CPF, Data de Nascimento -->
               <div class="row mb-3">
                 <div class="col-md-6 col-sm-6 mt-2">
-                    <input type="text" class="form-control" placeholder="Endereço" required>
+                    <input type="text"name="endereco" class="form-control" placeholder="Endereço">
                 </div>
                 <div class="col-md-4 col-sm-4 mt-2">
-                    <input type="text" class="form-control" placeholder="Bairro" required>
+                    <input type="text" name="bairro" class="form-control" placeholder="Bairro">
                 </div>
                 <div class="col-md-2 col-sm-2 mt-2">
-                  <input type="number" class="form-control" placeholder="Número de cômodos">
+                  <input type="number" name="num_comodos" class="form-control" placeholder="Número de cômodos">
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4 col-sm-4 mt-2">
-                  <select class="form-select" required>
+                  <select class="form-select" name="internet">
                       <option selected disabled>Acesso a internet?</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
+                      <option name="internet" value="sim">Sim</option>
+                      <option name="internet" value="nao">Não</option>
                   </select>
                 </div>
                 <div class="col-md-4 col-sm-4 mt-2">
-                  <select class="form-select" required>
+                  <select class="form-select" name="celular">
                       <option selected disabled>Possui celular?</option>
-                      <option value="sim">Sim</option>
-                      <option value="nao">Não</option>
+                      <option name="celular" value="sim">Sim</option>
+                      <option name="celular" value="nao">Não</option>
                   </select>
                 </div>
                 <div class="col-md-4 col-sm-4 mt-2">
-                  <select class="form-select" required>
+                  <select class="form-select" name="moradia">
                       <option selected disabled>Moradia</option>
-                      <option value="propria">Própria</option>
-                      <option value="financiada">Financiada</option>
-                      <option value="alugada">Alugada</option>
-                      <option value="cedido">Cedido</option>
-                      <option value="invasão">Invasão</option>
-                      <option value="outros">Outros</option>
+                      <option name="moradia" value="propria">Própria</option>
+                      <option name="moradia" value="financiada">Financiada</option>
+                      <option name="moradia" value="alugada">Alugada</option>
+                      <option name="moradia" value="cedido">Cedido</option>
+                      <option name="moradia" value="invasão">Invasão</option>
+                      <option name="moradia" value="outros">Outros</option>
                   </select>
                 </div>
                 <div class="col-md-12 col-sm-12 mt-2">
@@ -260,37 +288,37 @@
                   <div class="col-md-12 col-sm-12 mt-2">
                     <p class="form-check form-check-inline">Benefício social:</p>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="features" id="bolsa_familia" value="bolsa_familia">
+                      <input class="form-check-input" type="checkbox" name="beneficio" id="bolsa_familia" value="bolsa_familia">
                       <label class="form-check-label" for="bolsa_familia">Bolsa Família</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="features" id="mcmv" value="mcmv">
+                      <input class="form-check-input" type="checkbox" name="beneficio" id="mcmv" value="mcmv">
                       <label class="form-check-label" for="mcmv">MCMV / Casa Verde e Amarela</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="features" id="cva" value="cva">
+                      <input class="form-check-input" type="checkbox" name="beneficio" id="cva" value="cva">
                       <label class="form-check-label" for="cva">Casa Verde e Amarela</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="features" id="aux_emergencial" value="aux_emergencial">
+                      <input class="form-check-input" type="checkbox" name="beneficio" id="aux_emergencial" value="aux_emergencial">
                       <label class="form-check-label" for="aux_emergencial">Auxílio emergencial</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" name="features" id="outro" value="outro">
+                      <input class="form-check-input" type="checkbox" name="beneficio" id="outro" value="outro">
                       <label class="form-check-label" for="outro">Outros:</label>
                     </div>
                     <div class="form-check form-check-inline">
                       <!-- <div class="col-md-4 col-sm-4 mt-2"> -->
-                        <input type="text" class="form-control" name="outro_texto" id="outro_texto" placeholder="Escreva aqui" required>
+                        <input type="text" class="form-control" name="beneficio" id="outro_texto" placeholder="Escreva aqui">
                     <!-- </div>   -->
                     </div> 
                     <div class="row mb-3">
                       <div class="col-md-4 col-sm-4 mt-2">
                         <label for="">Faz tratamento de saúde?</label>
-                        <select class="form-select" required>
+                        <select class="form-select" name="tratamento">
                             <option selected disabled>---</option>
-                            <option value="nao">Não</option>
-                            <option value="sim">Sim</option>
+                            <option name="tratamento" value="nao">Não</option>
+                            <option name="tratamento" value="sim">Sim</option>
                         </select>
                       </div>
                       <div class="col-md-4 col-sm-4 mt-2">
@@ -299,20 +327,20 @@
                       </div>
                       <div class="col-md-4 col-sm-4 mt-2">
                         <label for="">Fornecido pelo SUS?</label>
-                        <select class="form-select" required>
+                        <select class="form-select" name="forn_sus_tratamento">
                             <option selected disabled>---</option>
-                            <option value="nao">Não</option>
-                            <option value="sim">Sim</option>
+                            <option name="forn_sus_tratamento" value="nao">Não</option>
+                            <option name="forn_sus_tratamento" value="sim">Sim</option>
                         </select>
                       </div>
                     </div>
                     <div class="row mb-3">
                       <div class="col-md-4 col-sm-4 mt-2">
                         <label for="">Medicamento controlado?</label>
-                        <select class="form-select" required>
+                        <select class="form-select" name="medicamento">
                             <option selected disabled>---</option>
-                            <option value="nao">Não</option>
-                            <option value="sim">Sim</option>
+                            <option name="medicamento" value="nao">Não</option>
+                            <option name="medicamento" value="sim">Sim</option>
                         </select>
                       </div>
                       <div class="col-md-4 col-sm-4 mt-2">
@@ -321,10 +349,10 @@
                       </div>
                       <div class="col-md-4 col-sm-4 mt-2">
                         <label for="">Fornecido pelo SUS?</label>
-                        <select class="form-select" required>
+                        <select class="form-select" name="forn_sus_medicamento">
                             <option selected disabled>---</option>
-                            <option value="nao">Não</option>
-                            <option value="sim">Sim</option>
+                            <option name="forn_sus_medicamento" value="nao">Não</option>
+                            <option name="forn_sus_medicamento" value="sim">Sim</option>
                         </select>
                       </div>
                     </div>
@@ -339,7 +367,8 @@
             </div>
     
             <!-- Botão de envio -->
-            <button type="submit" name="submit" class="btn btn-primary" onsubmit="return cadastrar()">Enviar</button>
+            <!-- <button type="submit" name="submit" class="btn btn-primary" onsubmit="return cadastrar()">Enviar</button> -->
+            <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
             <!-- </form> -->
         </div>
       </form>

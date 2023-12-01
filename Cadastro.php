@@ -58,7 +58,7 @@ session_start();
           <li><a href="index.html#team">Quem somos</a></li>
           <li><a href="index.html#recent-posts">Ações</a></li>
           <li><a href="contact.html">Contato</a></li>
-          <li><a class="login btn" href="login.html">Login</a></li>
+          <li><a class="login btn" href="login.php">Login</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -121,6 +121,12 @@ session_start();
                           . $_SESSION['error_message'] .
                           '</div>';
                       unset($_SESSION['error_message']);
+                  }
+                  if (isset($_SESSION['success_message'])) {
+                    echo '<div class="alert alert-success alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                        . $_SESSION['success_message'] .
+                        '</div>';
+                    unset($_SESSION['success_message']);
                   }
                   ?>
                 </div>

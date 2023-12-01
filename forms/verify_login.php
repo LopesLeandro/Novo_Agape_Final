@@ -2,6 +2,11 @@
 session_start();
 include 'db_connect.php'; // Inclua seu script de conexão ao banco de dados aqui
 
+if(isset($_SESSION['user_email'])) {
+    $_SESSION['success'] = 'Bem-vindo, ' . $_SESSION['user_email'] . '!';
+    echo '<p class="success">' . $_SESSION['success'] . '</p>';
+}
+
 if(isset($_POST['email']) && isset($_POST['senha'])){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -20,7 +25,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
 
             // Redirecionar com base no valor de 'radiovalue'
             if ($row['radiovalue'] == 'familia') {
-                header('Location: ../cadastro_familia.html');
+                header('Location: ../cadastro_familia.php');
             } elseif ($row['radiovalue'] == 'voluntario') {
                 header('Location: ../cadastro_voluntario.html');
             } else {
@@ -28,6 +33,8 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
                 $_SESSION['error_message'] = "Tipo de usuário inválido!";
                 header('Location: ../login.php');
             }
+            // Incluir a mensagem de sucesso
+            $_SESSION['success'] = 'Login bem-sucedido!';
         } else {
             // Senha incorreta
             $_SESSION['error_message'] = "E-mail e/ou senha incorretos!";

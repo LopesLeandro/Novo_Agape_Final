@@ -6,6 +6,16 @@ if (isset($_SESSION['error_message'])) {
     unset($_SESSION['error_message']);
 }
 
+if(isset($_SESSION['success_message'])) {
+    echo '<p class="success">' . $_SESSION['success_message'] . '</p>';
+    unset($_SESSION['success_message']);
+}
+
+if(isset($_SESSION['user_email'])) {
+    $_SESSION['success'] = 'Bem-vindo, ' . $_SESSION['user_email'] . '!';
+    echo '<p class="success">' . $_SESSION['success'] . '</p>';
+}
+
 // Configuração do banco de dados
 $servername = "localhost";
 $username = "root";
@@ -52,7 +62,7 @@ if(isset($_POST['nome'])){
             $stmt->bind_param("sssss", $radiovalue, $nome, $telefone, $email, $senhaHash);
 
             if ($stmt->execute()) {
-                $_SESSION['error_message'] = "Usuário cadastrado com sucesso!";
+                $_SESSION['success_message'] = "Usuário cadastrado com sucesso!";
                 header('Location: ../cadastro.php');
                 exit();
             } else {
