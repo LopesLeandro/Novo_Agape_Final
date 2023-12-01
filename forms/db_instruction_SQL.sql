@@ -13,12 +13,23 @@ CREATE TABLE cadastro(
 );
 
 SELECT * FROM cadastro;
--- TRUNCATE TABLE cadastro;
+TRUNCATE TABLE cadastro;
+
+-- Deletar registro das duas tabelas
+DELETE cadastro
+FROM cadastro
+INNER JOIN cadastro_familia ON cadastro.id_usuario = cadastro_familia.id_usuario;
+
+DELETE cadastro
+FROM cadastro
+LEFT JOIN cadastro_familia ON cadastro.id_usuario = cadastro_familia.id_usuario
+WHERE cadastro_familia.id_usuario IS NULL;
+
 
 -- TABELA FICHA CADASTRAL FAMILIAS
 
 CREATE TABLE cadastro_familia(
-	id_usuario int AUTO_INCREMENT PRIMARY key,
+	id_usuario int,
     nome varchar(100),
     cpf varchar(11),
     nascimento varchar(10),
@@ -47,4 +58,9 @@ CREATE TABLE cadastro_familia(
     forn_sus_medicamento varchar(100)
 );
 
+ALTER TABLE cadastro_familia 
+ADD FOREIGN KEY (id_usuario) REFERENCES cadastro(id_usuario);
+
 SELECT * FROM cadastro_familia;
+
+DROP PROCEDURE insert_cadastro_familia;

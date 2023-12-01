@@ -74,8 +74,8 @@ if(isset($_POST['nome'])){
     //     exit();
     // } else {
         // Inserção no banco de dados usando declarações preparadas
-        $stmt = $conn->prepare("INSERT INTO cadastro_familia (nome, cpf, nascimento, naturalidade, filiacao, etnia, renda, estado_civil, situacao_emprego, telefone1, telefone2, email, endereco, bairro, num_comodos, internet, celular, moradia, features, beneficio, tratamento, qual_tratamento, forn_sus_tratamento, medicamento, qual_medicamento, forn_sus_medicamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssssssssssssssssssss", $nome, $cpf, $nascimento, $naturalidade, $filiacao, $etnia, $renda, $estado_civil, $situacao_emprego, $telefone1, $telefone2, $email, $endereco, $bairro, $num_comodos, $internet, $celular, $moradia, $features, $beneficio, $tratamento, $qual_tratamento, $forn_sus_tratamento, $medicamento, $qual_medicamento, $forn_sus_medicamento);
+        $stmt = $conn->prepare("INSERT INTO cadastro_familia (id_usuario, nome, cpf, nascimento, naturalidade, filiacao, etnia, renda, estado_civil, situacao_emprego, telefone1, telefone2, email, endereco, bairro, num_comodos, internet, celular, moradia, features, beneficio, tratamento, qual_tratamento, forn_sus_tratamento, medicamento, qual_medicamento, forn_sus_medicamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssssssssssssssssssssssss", $_SESSION['user_id'], $nome, $cpf, $nascimento, $naturalidade, $filiacao, $etnia, $renda, $estado_civil, $situacao_emprego, $telefone1, $telefone2, $email, $endereco, $bairro, $num_comodos, $internet, $celular, $moradia, $features, $beneficio, $tratamento, $qual_tratamento, $forn_sus_tratamento, $medicamento, $qual_medicamento, $forn_sus_medicamento);
         if ($stmt->execute()) {
             $_SESSION['success_message'] = "Registros gravados com sucesso!";
             header('Location: ../cadastro_familia.php');
