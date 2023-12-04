@@ -1,5 +1,6 @@
 <!-- <?php
 session_start();
+include 'db_connect.php'; // Inclua seu script de conexão ao banco de dados aqui
 
 if (isset($_SESSION['error_message'])) {
     echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
@@ -14,21 +15,6 @@ if(isset($_SESSION['success_message'])) {
 if(isset($_SESSION['user_email'])) {
     $_SESSION['success'] = 'Bem-vindo, ' . $_SESSION['user_email'] . '!';
     echo '<p class="success">' . $_SESSION['success'] . '</p>';
-}
-
-// Configuração do banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "@Ruth12345";
-$dbname = "agape";
-
-// Conexão com o banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-$msgErro = "";
-
-// Verifica a conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
 }
 
 // Processamento do formulário
@@ -48,7 +34,7 @@ if(isset($_POST['nome'])){
         exit();
     } else {
         // Validar comprimento mínimo da senha
-        if (strlen($senha) < 8) {
+        if (strlen($senha) < 1) {
             $_SESSION['error_message'] = "A senha deve ter pelo menos 8 caracteres!";
             header('Location: ../cadastro.php');
             exit();
@@ -63,7 +49,7 @@ if(isset($_POST['nome'])){
 
             if ($stmt->execute()) {
                 $_SESSION['success_message'] = "Usuário cadastrado com sucesso!";
-                header('Location: ../cadastro.php');
+                header('Location: ../login.php');
                 exit();
             } else {
                 echo "Erro ao cadastrar o usuário: " . $conn->error;
@@ -78,8 +64,8 @@ if(isset($_POST['nome'])){
     $conn->close();
 }
 ?>
-<!-- 
-    // Verifica se os campos estão preenchidos
+ 
+    <!- Verifica se os campos estão preenchidos
     if (empty($nome) || empty($telefone) || empty($email) || empty($senha) || empty($confirmarsenha)) {
         echo "Por favor, preencha todos os campos!";
         exit();

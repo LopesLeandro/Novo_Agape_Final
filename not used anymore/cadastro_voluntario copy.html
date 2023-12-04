@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Instituto Somos Ágape - Login</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon/favicon-32x32.png" rel="icon">
+  <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/cadastro_familia.css" rel="stylesheet">
+</head>
+
+<body class="page-contact">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="d-flex align-items-center"><img src="assets/img/logo_limpa.png" alt=""></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="index.html#why-us">Projetos</a></li>
+          <li><a href="index.html#services-list">Serviços</a></li>
+          <li><a href="index.html#call-to-action">Missão</a></li>
+          <li><a href="index.html#team">Quem somos</a></li>
+          <li><a href="index.html#recent-posts">Ações</a></li>
+          <li><a href="contact.html">Contato</a></li>
+          <li><a class="login btn" href="login.php">Login</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center">
+      <div class="container position-relative d-flex flex-column align-items-center">
+
+
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Form Section ======= -->
+    <section id="volunteer-form" class="volunteer-form">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title mb-0 pb-0 row d-flex justify-content-center">
+          <!-- <h2>Ficha de Inscrição de Voluntários</h2> -->
+            <div>
+              <img src="assets/img/img_voluntario.png" class="col-xl-10 col-lg-10 col-md-11 col-sm-12 col-12" alt="">
+            </div>
+            <p class="col-xl-10 col-lg-10 col-md-11 col-sm-12 col-12 mt-3">Estamos deixando de ser apenas um grupo de pessoas querendo levar o amor as comunidades da nossa região.  Vamos nos tornar oficialmente uma ONG, e teremos mais responsabilidade. Nosso objetivo continuará sendo o mesmo, de levar o amor Ágape a quem precisa.</p>
+        </div>
+
+        <form class="row mt-5 d-flex justify-content-center container form-container mx-auto" method="POST" action="forms/ficha_cadastral_voluntario.php">
+          
+          <!-- Campo de E-mail -->
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mt-3">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" name="email" required>
+          </div>
+
+          <!-- Campo de Nome Completo -->
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mt-3">
+            <label for="nome_completo">Nome completo</label>
+            <input type="text" class="form-control" name="nome_completo"  required>
+          </div>
+
+          <!-- Campo de Data de Nascimento -->
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 mt-3">
+            <label for="data_nascimento">Data de nascimento</label>
+            <input type="date" class="form-control" name="data_nascimento" required>
+          </div>
+
+          <!-- Campo de CPF -->
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 mt-3">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" name="cpf" required>
+          </div>
+
+          <!-- Campo de Telefone -->
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 mt-3">
+            <label for="telefone">Telefone</label>
+            <input type="tel" class="form-control" name="telefone" placeholder="( ) _____ - ____ " required>
+          </div>
+
+          <!-- Campo de Redes Sociais -->
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mt-3">
+            <label for="redes_sociais">Redes sociais</label>
+            <input type="text" class="form-control" name="redes_sociais" placeholder="coloque o @">
+          </div>
+
+          <!-- Campo de Escolaridade -->
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
+            <label for="none">Escolaridade</label>
+            <select class="form-select" name="escolaridade" required>
+              <option value="" disabled selected>Grau</option>
+              <option value="fundamental">Ensino Fundamental</option>
+              <option value="medio_incompleto">Ensino Médio Incompleto</option>
+              <option value="medio_completo">Ensino Médio Completo</option>
+              <option value="superior_andamento">Ensino superior em andamento</option>
+              <option value="superior_incompleto">Ensino superior incompleto</option>
+              <option value="superior_completo">Ensino superior completo</option>
+              <option value="ensino_tecnico">Ensino técnico</option>
+              <option value="especializacao">Especialização/Pós graduação</option>
+            </select>
+          </div>
+
+          <!-- Campo de Área de Conhecimento -->
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
+            <label for="area_conhecimento">Qual área de conhecimento você atua?</label>
+            <input type="text" class="form-control" name="area_conhecimento" required>
+          </div>
+
+          <!-- Campo de Profissão -->
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3">
+            <label for="profissao">Qual sua profissão?</label>
+            <input type="text" class="form-control" name="profissao" required>
+          </div>
+
+          <!-- Campo de Definição de Voluntariado -->
+          <div class="col-md-12 mt-3">
+            <label for="definicao_voluntariado">O que é ser voluntário? Segundo definição das Nações Unidas, voluntário é o jovem ou o adulto que, devido a seu interesse pessoal e ao seu espírito cívico, dedica parte do seu tempo, sem remuneração alguma, a diversas formas de atividades, organizadas ou não, de bem estar social, ou outros campos.</label>
+            <textarea class="form-control" name="definicao_voluntariado" placeholder="E para você, o que é ser voluntário?" required></textarea>
+          </div>
+
+          <!-- Experiências Anteriores com Voluntariado -->
+          <div class="col-md-12 mt-3">
+            <label for="experiencia_voluntariado">Você já fez algum trabalho voluntário?</label>
+            <textarea class="form-control" name="experiencia_voluntariado" placeholder="Conte-nos como foi."></textarea>
+          </div>
+
+          <!-- Habilidades para o Ágape -->
+          <div class="col-md-12 mt-3">
+            <label for="habilidades">Você possui alguma habilidade que gostaria de compartilhar e usar no Ágape?</label>
+            <textarea class="form-control" name="habilidades" placeholder="Sua resposta."></textarea>
+          </div>
+
+          <!-- Conhecimento sobre outras ONGs -->
+          <div class="col-md-12 mt-3">
+            <label for="conhecimento_ongs">Você conhece o trabalho de alguma outra ONG?</label>
+            <textarea class="form-control" name="conhecimento_ongs" placeholder="Sua resposta."></textarea>
+          </div>
+
+
+          <!-- Sabe qual o objetivo e importância das ONGs? -->
+          <div class="col-md-12 mt-3">
+            <label for="objetivo_ongs">Você sabe qual o objetivo e importância das ONGs?</label>
+            <textarea class="form-control" name="objetivo_ongs" placeholder="Sua resposta."></textarea>
+          </div>
+
+          <!-- Motivação para contato -->
+          <div class="col-md-12 mt-3">
+            <label for="motivacao_contato">O que te fez entrar em contato com o Somos Ágape?</label>
+            <textarea class="form-control" name="motivacao_contato" placeholder="Sua resposta." required></textarea>
+          </div>
+
+          <!-- Botão de Envio -->
+          <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+    <!-- End Form Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span>Instituto Somos Ágape</span>
+            </a>
+            <p>Ajude a propagar o Amor.</p>
+            <div class="social-links d-flex  mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a target="_blank" href="https://www.instagram.com/institutosomosagape/" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a target="_blank" href="https://api.whatsapp.com/send?phone=554796905460" class="linkedin"><i class="bi bi-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Links úteis</h4>
+            <ul>
+              <li><i class="bi bi-dash"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Sobre nós</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Serviços</a></li>
+              <!-- <li><i class="bi bi-dash"></i> <a href="#">Terms of service</a></li> -->
+              <li><i class="bi bi-dash"></i> <a target="_blank" href="https://drive.google.com/file/d/1CvVMq7YPQeUaAF-wxDKfb9F_fYGl2uC-/view?usp=share_link">Política de privacidade</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Mapa do site</h4>
+            <ul>
+              <li><i class="bi bi-dash"></i> <a href="#">Preciso de ajuda</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Quero ser um voluntário</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Orientação carreira</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Empregabilidade</a></li>
+              <li><i class="bi bi-dash"></i> <a href="#">Mentoria</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contato</h4>
+            <p>
+              Rua Veroni Pedro Graciano, 2954<br>
+              Costa e Silva - 89.220-660<br>
+              Joinville, SC
+               <br><br>
+               <strong>CNPJ:</strong> 46.190.994/0001-57<br> 
+              <strong>Telefone:</strong> (47) 9 9690-5460<br>
+              <strong>Email:</strong> somosagapejlle@gmail.com<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="footer-legal">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Nova</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits"> -->
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
+          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div> -->
+  <!-- </footer> -->
+  <!-- End Footer --><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

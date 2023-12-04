@@ -64,27 +64,3 @@ ADD FOREIGN KEY (id_usuario) REFERENCES cadastro(id_usuario);
 SELECT * FROM cadastro_familia;
 
 DROP PROCEDURE insert_cadastro_familia;
-
-CREATE TABLE cadastro_voluntario (
-    id_usuario INT PRIMARY KEY,
-    email VARCHAR(255),
-    nome_completo VARCHAR(255),
-    data_nascimento VARCHAR(10),
-    cpf VARCHAR(14),
-    telefone VARCHAR(15),
-    redes_sociais VARCHAR(255),
-    escolaridade VARCHAR(255),
-    area_conhecimento VARCHAR(255),
-    profissao VARCHAR(255),
-    definicao_voluntariado VARCHAR(255),
-    experiencia_voluntariado VARCHAR(255),
-    habilidades VARCHAR(255),
-    conhecimento_ongs VARCHAR(255),
-    objetivo_ongs VARCHAR(255),
-    motivacao_contato VARCHAR(255)
-);
-
-ALTER TABLE cadastro_voluntario
-ADD FOREIGN KEY (id_usuario) REFERENCES cadastro(id_usuario);
-
-SELECT * FROM cadastro_voluntario;

@@ -83,6 +83,7 @@ session_start();
 
         <div class="form-container mx-auto">
           <form class="container mt-5 form-container mx-auto" method="POST" action="forms/config.php">
+          <!-- <form class="container mt-5 form-container mx-auto" method="POST" action="forms/config.php"> -->
             <h2 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Ficha Cadastral – Somos Ágape</h2>
     
             <h3 class="col-xl-5 col-md-10 col-sm-12 mt-2 mx-auto">Identificação</h3>

@@ -103,13 +103,18 @@ session_start();
                 </div>
                 <?php    
                   if (isset($_SESSION['error_message'])) {
-                      echo '<div class="alert alert-warning alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
-                          . $_SESSION['error_message'] .
-                          '</div>';
-                      unset($_SESSION['error_message']);
+                    echo '<div class="alert alert-warning alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                        . $_SESSION['error_message'] .
+                        '</div>';
+                    unset($_SESSION['error_message']);
+                  }
+                  if (isset($_SESSION['success_message'])) {
+                    echo '<div class="alert alert-success alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
+                        . $_SESSION['success_message'] .
+                        '</div>';
+                    unset($_SESSION['success_message']);
                   }
                   ?>
-                
                 <div class="d-flex justify-content-center mt-3">
                   <a href="cadastro.php" class="px-3">Cadastre-se</a>
                   <a href="#" class="px-3">Esqueci minha senha</a>

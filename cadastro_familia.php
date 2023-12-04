@@ -2,6 +2,39 @@
 session_start();
 // include 'forms/config.php';
 // include 'forms/verify_login.php';
+include 'forms/db_connect.php';
+include 'forms/functions.php';
+
+if (!isset($userData)) {
+  $userData = []; // Inicializa como um array vazio
+}
+
+
+// Verifica se o usuário está logado e tem um ID
+if(isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
+
+  // Preparar a consulta SQL
+  $stmt = $conn->prepare("SELECT * FROM cadastro_familia WHERE id_usuario = ?");
+  $stmt->bind_param("i", $user_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if($result->num_rows > 0){
+      // Usuário encontrado, obtém os dados
+      $userData = $result->fetch_assoc();
+  } else {
+      // Usuário não encontrado
+      $_SESSION['error_message'] = "Atualize seu cadastro!";
+  }
+
+  $stmt->close();
+} else {
+  // Usuário não está logado
+  $_SESSION['error_message'] = "Usuário não logado.";
+  header('Location: ../login.php');
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -117,36 +150,36 @@ session_start();
               <!-- Linha 1: Nome, CPF, Data de Nascimento -->
               <div class="row mb-3">
                 <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" name="nome" class="form-control" placeholder="Nome">
+                    <input type="text" name="nome" class="form-control" placeholder="Nome" value="<?php echo getFieldValue('nome', $userData); ?>">
                 </div>
                 <div class="col-md-3 col-sm-6 mt-2">
-                    <input type="text" name="cpf" class="form-control" placeholder="CPF" maxlength="11">
+                    <input type="text" name="cpf" class="form-control" placeholder="CPF" maxlength="11" value="<?php echo getFieldValue('cpf', $userData); ?>">
                 </div>
                 <div class="col-md-2 col-sm-6 mt-2 text-center">
                     <span>Data de nascimento:</span>
                 </div>
                 <div class="col-md-4 col-sm-6 mt-2">
-                  <input type="date" name="nascimento" class="form-control">
+                  <input type="date" name="nascimento" class="form-control" value="<?php echo getFieldValue('nascimento', $userData); ?>">
               </div>
               </div>
 
               <!-- Linha 2: Naturalidade, Filiação, Etnia -->
               <div class="row mb-3 mt-2">
                 <div class="col-md-4 col-sm-6">
-                    <input type="text" name="naturalidade" class="form-control" placeholder="Naturalidade">
+                    <input type="text" name="naturalidade" class="form-control" placeholder="Naturalidade" value="<?php echo getFieldValue('naturalidade', $userData); ?>">
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <input type="text" name="filiacao" class="form-control" placeholder="Filiação">
+                    <input type="text" name="filiacao" class="form-control" placeholder="Filiação" value="<?php echo getFieldValue('filiacao', $userData); ?>">
                 </div>
                 <div class="col-md-4 col-sm-12 mt-2">
-                    <select class="form-select" name="etnia">
-                        <option selected disabled>Etnia</option>
-                        <option name="etnia" value="branco">Branco</option>
-                        <option name="etnia" value="preta">Preta</option>
-                        <option name="etnia" value="parda">Parda</option>
-                        <option name="etnia" value="indigena">Indígena</option>
-                        <option name="etnia" value="outro">Outro</option>
-                    </select>
+                  <select class="form-select" name="etnia">
+                      <option selected disabled>Etnia</option>
+                      <option value="branco" <?php echo isSelected($userData['etnia'], 'branco'); ?>>Branco</option>
+                      <option value="preta" <?php echo isSelected($userData['etnia'], 'preta'); ?>>Preta</option>
+                      <option value="parda" <?php echo isSelected($userData['etnia'], 'parda'); ?>>Parda</option>
+                      <option value="indigena" <?php echo isSelected($userData['etnia'], 'indigena'); ?>>Indígena</option>
+                      <option value="outro" <?php echo isSelected($userData['etnia'], 'outro'); ?>>Outro</option>
+                  </select>
                 </div>
               </div>
 
@@ -368,7 +401,8 @@ session_start();
     
             <!-- Botão de envio -->
             <!-- <button type="submit" name="submit" class="btn btn-primary" onsubmit="return cadastrar()">Enviar</button> -->
-            <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" name="submit" class="btn btn-primary">Salvar</button>
+            <!-- <button type="submit" name="save" class="btn btn-primary">Salvar</button> -->
             <!-- </form> -->
         </div>
       </form>
