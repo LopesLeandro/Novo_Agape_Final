@@ -1,36 +1,29 @@
 <?php
 session_start();
-// include 'forms/config.php';
-// include 'forms/verify_login.php';
 include 'forms/db_connect.php';
 include 'forms/functions.php';
 
 if (!isset($userData)) {
-  $userData = []; // Inicializa como um array vazio
+  $userData = [];
 }
-
 
 // Verifica se o usuário está logado e tem um ID
 if(isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
 
-  // Preparar a consulta SQL
   $stmt = $conn->prepare("SELECT * FROM cadastro_familia WHERE id_usuario = ?");
   $stmt->bind_param("i", $user_id);
   $stmt->execute();
   $result = $stmt->get_result();
 
   if($result->num_rows > 0){
-      // Usuário encontrado, obtém os dados
       $userData = $result->fetch_assoc();
   } else {
-      // Usuário não encontrado
       $_SESSION['error_message'] = "Atualize seu cadastro!";
   }
 
   $stmt->close();
 } else {
-  // Usuário não está logado
   $_SESSION['error_message'] = "Usuário não logado.";
   header('Location: ../login.php');
   exit();
@@ -75,8 +68,6 @@ if(isset($_SESSION['user_id'])) {
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="d-flex align-items-center"><img src="assets/img/logo_limpa.png" alt=""></h1>
       </a>
 
@@ -94,38 +85,24 @@ if(isset($_SESSION['user_id'])) {
           <li><a href="contact.html">Contato</a></li>
           <li><a class="login btn" href="login.php">Login</a></li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs d-flex align-items-center">
       <div class="container position-relative d-flex flex-column align-items-center">
-
-
-
       </div>
-    </div><!-- End Breadcrumbs -->
+    </div>
+    <!-- End Breadcrumbs -->
 
     <!-- ======= Form Section ======= -->
     <section id="login" class="login">
       <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <!-- <h1>Login</h1> -->
-        </div>
-        <!-- <?php
-          // if (isset($_SESSION['user_email'])) {
-          //   echo '<div class="alert alert-success alert-dismissible fade show text-center mt-3 mx-auto col-xl-6 col-lg-6 col-md-6 col-sm-10" role="alert">'
-          //       . $_SESSION['success'] .
-          //       '</div>';
-          //   unset($_SESSION['success']);
-          // }
-        ?> -->
-        <!-- <form class="row mt-5 d-flex justify-content-between flex-fill container mt-5 form-container mx-auto" method="POST" action="forms/ficha_cadastral_familia.php"> -->
           <h2 class="mt-3">Ficha Cadastral</h2>
           <?php    
           if (isset($_SESSION['error_message'])) {
@@ -389,28 +366,18 @@ if(isset($_SESSION['user_id'])) {
                         </select>
                       </div>
                     </div>
-                    
-
-
-
                 </div>
                 </div>
               </div>
-              
             </div>
-    
             <!-- Botão de envio -->
-            <!-- <button type="submit" name="submit" class="btn btn-primary" onsubmit="return cadastrar()">Enviar</button> -->
             <button type="submit" name="submit" class="btn btn-primary">Salvar</button>
-            <!-- <button type="submit" name="save" class="btn btn-primary">Salvar</button> -->
             <!-- </form> -->
         </div>
       </form>
-
       </div>
     </section>
-    <!-- End login Section -->
-
+    <!-- End form Section -->
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
