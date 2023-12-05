@@ -98,8 +98,8 @@
   # Breadcrumbs
   --------------------------------------------------------------*/
   .breadcrumbs {
-    padding: 60px 0 60px 0;
-    min-height: 10vh;
+    padding: 40px 0 40px 0;
+    min-height: 40px;
     position: relative;
     background-size: cover;
     background-position: center;
@@ -232,9 +232,12 @@
   # Header
   --------------------------------------------------------------*/
   .header {
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
     z-index: 997;
     padding: 24px 0;
+    position: fixed;
+    background: var(--color-secondary);
+    
   }
   
   @media (max-width: 1200px) {
@@ -243,10 +246,6 @@
     }
   }
   
-  .header.sticked {
-    background: var(--color-secondary);
-    padding: 12px 0;
-  }
   
   .header .logo img {
     max-height: 50px;
@@ -409,11 +408,15 @@
       z-index: 9998;
     }
   
+    li { 
+      list-style-type: none;
+    }
+  
     .navbar a,
     .navbar a:focus {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content:left;
       padding: 10px 20px;
       font-family: var(--font-default);
       font-size: 15px;
@@ -421,6 +424,9 @@
       color: var(--color-gray-transparency);
       white-space: nowrap;
       transition: 0.3s;
+      min-width: 100px;
+      max-width: 140px;
+      margin-left: 10px;
     }
   
     .navbar a i,
@@ -555,24 +561,28 @@
     margin: 40px 0;
   }
   
-  /* Login button */
-  .navbar .login,
-  .navbar .login:focus {
-    color: #fff;
-    padding: 8px 25px;
-    margin-left: 30px;
-    border-radius: 20px;
-    /* border: 2px solid #5cb874; */
-    background-color: var(--color-ternary);
-    transition: 0.3s;
-    font-size: 14px;
-  }
-  
-  .navbar .login:hover,
-  .navbar .login:focus:hover {
-    background: var(--color-primary);
-    color: #000;
-  }
+/* Login button */
+.navbar .login,
+.navbar .login:focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 8px 25px;
+  border-radius: 20px;
+  background-color: var(--color-ternary);
+  transition: 0.3s;
+  font-size: 14px;
+  min-width: 100px;
+  max-width: 140px;
+  margin-left: 20px;
+}
+
+.navbar .login:hover,
+.navbar .login:focus:hover {
+  background: var(--color-primary);
+  color: #000;
+}
   
   
   .hero .btn-get-started {

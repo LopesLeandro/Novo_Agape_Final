@@ -382,11 +382,15 @@
       z-index: 9998;
     }
   
+    li { 
+      list-style-type: none;
+    }
+  
     .navbar a,
     .navbar a:focus {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content:left;
       padding: 10px 20px;
       font-family: var(--font-default);
       font-size: 15px;
@@ -394,6 +398,9 @@
       color: var(--color-gray-transparency);
       white-space: nowrap;
       transition: 0.3s;
+      min-width: 100px;
+      max-width: 140px;
+      margin-left: 10px;
     }
   
     .navbar a i,
